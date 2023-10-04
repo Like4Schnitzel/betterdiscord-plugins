@@ -82,6 +82,20 @@ function convertLayout(input) {
         const dimensions = document.createElement('span');
         lazyImg.onload = function () { dimensions.innerHTML = lazyImg.naturalWidth + "x" + lazyImg.naturalHeight + "px"};
         imageDetails.appendChild(dimensions);
+
+        const download = document.createElement('svg');
+        download.setAttribute('name', "Download");
+        download.setAttribute('width', "16");
+        download.setAttribute('height', "16");
+        download.setAttribute('viewBox', "0 0 16 16");
+        download.classList = "cursorPointer-B3uwDA";
+        imageDetails.appendChild(download);
+
+        const downloadIcon = document.createElement('path');
+        downloadIcon.setAttribute('fill', "currentColor");
+        downloadIcon.setAttribute('fill-rule', "evenodd");
+        downloadIcon.setAttribute('d', "M7.47 10.78a.75.75 0 001.06 0l3.75-3.75a.75.75 0 00-1.06-1.06L8.75 8.44V1.75a.75.75 0 00-1.5 0v6.69L4.78 5.97a.75.75 0 00-1.06 1.06l3.75 3.75zM3.75 13a.75.75 0 000 1.5h8.5a.75.75 0 000-1.5h-8.5z");
+        download.appendChild(downloadIcon);
     }
 
     return output;
