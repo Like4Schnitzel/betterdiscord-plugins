@@ -56,7 +56,7 @@ function convertLayout(input) {
         clickableWrapper.role = "button";
         imageWrapper.appendChild(clickableWrapper);
 
-        const lazyImg = document.createElement('img');
+        const lazyImg = new Image();
         lazyImg.classList = "lazyImg-ewiNCh";
         lazyImg.alt = "Image";
         lazyImg.src = link;
@@ -74,6 +74,14 @@ function convertLayout(input) {
         fileName.tabIndex = "0";
         fileName.innerHTML = link.substring(link.lastIndexOf('/') + 1);
         imageDetails.appendChild(fileName);
+
+        const size = document.createElement('span');
+        size.innerHTML = "PLACEHOLDER";
+        imageDetails.appendChild(size);
+
+        const dimensions = document.createElement('span');
+        lazyImg.onload = function () { dimensions.innerHTML = lazyImg.naturalWidth + "x" + lazyImg.naturalHeight + "px"};
+        imageDetails.appendChild(dimensions);
     }
 
     return output;
